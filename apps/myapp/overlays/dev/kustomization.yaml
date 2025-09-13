@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://json.schemastore.org/kustomization
+# apps/myapp/overlays/dev/kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
@@ -6,7 +6,19 @@ resources:
   - ../../base
 
 patches:
-- path: patch-image-stable.yaml
-- path: patch-image-canary.yaml
-- path: patch-canary-weight.yaml
-  # - promote-switch-active.yaml   # include when you want to cut over
+  - path: patch-image-stable.yaml
+    target:
+      kind: Deployment
+      name: myapp-stable
+      namespace: myapp-dev
+  - path: patch-image-canary.yaml
+    target:
+      kind: Deployment
+      name: myapp-canary
+      namespace: myapp-dev
+  - path: patch-canary-weight.yaml
+    target:
+      kind: Ingress
+      name: myapp-canary
+      namespace: myapp-dev
+#  - path: promote-switch-active.yaml   # uncomment when promoting
