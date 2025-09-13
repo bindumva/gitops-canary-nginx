@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://json.schemastore.org/argocd-application
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: myapp-dev
+  namespace: argocd
+spec:
+  project: dev-project
+  source:
+    repoURL: https://github.com/bindumva/gitops-canary-nginx.git   # <-- change
+    targetRevision: main
+    path: apps/myapp/overlays/dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: myapp-dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

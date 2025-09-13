@@ -5,8 +5,8 @@ kind: Kustomization
 resources:
   - ../../base
 
-patchesStrategicMerge:
-  - patch-image-stable.yaml
-  - patch-image-canary.yaml
-  - patch-canary-weight.yaml
+patches:
+- path: patch-image-stable.yaml
+- path: patch-image-canary.yaml
+- path: patch-canary-weight.yaml
   # - promote-switch-active.yaml   # include when you want to cut over
