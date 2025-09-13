@@ -1,0 +1,27 @@
+# Point primary ingress to canary service (promote to 100%)
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: myapp
+  namespace: myapp-dev
+spec:
+  rules:
+    - host: myapp-dev.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: myapp-canary
+                port:
+                  number: 80
+---
+# Optionally scale down old stable
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-stable
+  namespace: myapp-dev
+spec:
+  replicas: 0

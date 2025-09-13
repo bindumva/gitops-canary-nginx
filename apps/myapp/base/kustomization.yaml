@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://json.schemastore.org/kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: myapp-dev
+resources:
+  - namespace.yaml
+  - deployment-stable.yaml
+  - deployment-canary.yaml
+  - service-stable.yaml
+  - service-canary.yaml
+  - ingress-primary.yaml
+  - ingress-canary.yaml
+  - networkpolicy-default-deny.yaml
+  - networkpolicy-allow-ingress-frontend-from-ingress.yaml
+  - networkpolicy-allow-dns-egress.yaml
