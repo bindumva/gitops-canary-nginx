@@ -62,3 +62,11 @@ spec:
             limits:
               cpu: "200m"
               memory: "256Mi"
+          volumeMounts:
+            - mountPath: /usr/share/nginx/html/index.html
+              name: version
+              subPath: index.html
+      volumes:
+        - name: version
+          configMap:
+            name: version-html-canary    

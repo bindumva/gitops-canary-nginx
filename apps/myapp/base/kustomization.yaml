@@ -4,6 +4,8 @@ kind: Kustomization
 namespace: myapp-dev
 resources:
   - namespace.yaml
+  - configmap-canary.yaml
+  - configmap-stable.yaml
   - deployment-stable.yaml
   - deployment-canary.yaml
   - service-stable.yaml
