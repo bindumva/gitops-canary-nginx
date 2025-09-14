@@ -8,6 +8,7 @@ spec:
     matchLabels:
       app: myapp
       role: frontend          # <- only these specific pods accept external traffic
+      version: canary
   policyTypes: [Ingress]
   ingress:
     - from:
