@@ -7,6 +7,6 @@ data:
   index.html: |
     <html>
     <body>
-    <h1>NGINX Canary Version 1.26</h1>
+    <h1>NGINX Stable Version 1.26</h1>
     </body>
     </html>
