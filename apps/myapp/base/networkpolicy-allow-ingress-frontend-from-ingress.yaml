@@ -6,9 +6,8 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      # app: myapp
-      # role: frontend
-      version: canary          # <- only these specific pods accept external traffic
+      app: myapp
+      role: frontend
   policyTypes: [Ingress]
   ingress:
     - from:

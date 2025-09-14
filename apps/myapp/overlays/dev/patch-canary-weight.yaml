@@ -4,4 +4,4 @@ metadata:
   name: myapp-canary
   namespace: myapp-dev
   annotations:
-    nginx.ingress.kubernetes.io/canary-weight: "10"   # change to 25/50/100 as you ramp
+    nginx.ingress.kubernetes.io/canary-weight: "90"   # change to 25/50/100 as you ramp
