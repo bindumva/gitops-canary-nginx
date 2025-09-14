@@ -14,4 +14,3 @@ resources:
   - ingress-canary.yaml
   - networkpolicy-default-deny.yaml
   - networkpolicy-allow-ingress-frontend-from-ingress.yaml
-  - networkpolicy-allow-dns-egress.yaml
