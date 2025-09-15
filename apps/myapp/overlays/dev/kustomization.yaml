@@ -1,4 +1,3 @@
-# apps/myapp/overlays/dev/kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
@@ -21,4 +20,3 @@ patches:
       kind: Ingress
       name: myapp-canary
       namespace: myapp-dev
-#  - path: promote-switch-active.yaml   # uncomment when promoting

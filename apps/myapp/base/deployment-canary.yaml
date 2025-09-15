@@ -4,7 +4,7 @@ metadata:
   name: myapp-canary
   namespace: myapp-dev
 spec:
-  replicas: 1                          # start small; weight controls traffic percentage
+  replicas: 1
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -22,24 +22,6 @@ spec:
         role: frontend
         version: canary
     spec:
-      affinity:
-        podAntiAffinity:
-          preferredDuringSchedulingIgnoredDuringExecution:
-            - weight: 100
-              podAffinityTerm:
-                labelSelector:
-                  matchLabels:
-                    app: myapp
-                    role: frontend
-                topologyKey: kubernetes.io/hostname
-      topologySpreadConstraints:
-        - maxSkew: 1
-          topologyKey: topology.kubernetes.io/zone
-          whenUnsatisfiable: ScheduleAnyway
-          labelSelector:
-            matchLabels:
-              app: myapp
-              role: frontend
       containers:
         - name: myapp
           image: public.ecr.aws/docker/library/nginx:1.27-alpine

@@ -8,6 +8,5 @@ spec:
     spec:
       containers:
         - name: myapp
-          # Canary version – newer nginx
           image: public.ecr.aws/docker/library/nginx:1.27-alpine
           imagePullPolicy: IfNotPresent

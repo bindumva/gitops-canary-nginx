@@ -6,10 +6,10 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/canary: "true"
-    nginx.ingress.kubernetes.io/canary-weight: "10"   # patched by overlay
+    nginx.ingress.kubernetes.io/canary-weight: "10"
 spec:
   rules:
-    - host: myapp-dev.infytest.com     # same host as primary
+    - host: myapp-dev.infytest.com
       http:
         paths:
           - path: /

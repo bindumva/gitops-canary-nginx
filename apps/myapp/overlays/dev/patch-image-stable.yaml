@@ -8,6 +8,5 @@ spec:
     spec:
       containers:
         - name: myapp
-          # Stable version – older nginx
           image: public.ecr.aws/docker/library/nginx:1.26-alpine
           imagePullPolicy: IfNotPresent
